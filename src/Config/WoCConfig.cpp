@@ -1,5 +1,7 @@
 #include "WoCConfig.h"
 
+WoCConfig* WoCConfig::instance = nullptr;
+
 WoCConfig* WoCConfig::GetInstance()
 {
     if (!instance)

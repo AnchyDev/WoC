@@ -9,7 +9,7 @@ public:
     static WoCConfig* GetInstance();
 private:
     WoCConfig();
-    inline static WoCConfig* instance = nullptr;
+    static WoCConfig* instance;
 };
 
 #define WoCConfigMgr WoCConfig::GetInstance()
