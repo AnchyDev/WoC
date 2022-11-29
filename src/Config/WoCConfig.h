@@ -8,6 +8,7 @@ public:
 
     static WoCConfig* GetInstance();
 private:
+    WoCConfig();
     static WoCConfig* instance;
 };
 
