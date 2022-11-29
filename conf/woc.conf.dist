@@ -8,10 +8,10 @@
 # My module configuration
 ########################################
 #
-#    MyModule.Enable
-#        Description: Enable my module and print "Hello World" message at server start
+#    WoC.Enable
+#        Description: Enable the World of Conquerors module.
 #        Default:     0 - Disabled
 #                     1 - Enabled
 #
 
-MyModule.Enable = 0
+WoC.Enable = 0
