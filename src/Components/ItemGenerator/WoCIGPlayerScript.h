@@ -1,5 +1,5 @@
 #ifndef MODULE_WOC_IG_PLAYERSCRIPT_H
-#define MODUlE_WOC_IG_PLAYERSCRIPT_H
+#define MODULE_WOC_IG_PLAYERSCRIPT_H
 
 #include "ScriptMgr.h"
 #include "Player.h"
