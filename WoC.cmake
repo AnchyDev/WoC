@@ -1,1 +1,1 @@
-add_subdirectory(./src/Config ./src/Components)
+add_subdirectory(./Config ./Components)
