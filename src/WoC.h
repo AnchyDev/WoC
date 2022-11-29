@@ -6,7 +6,7 @@
 #include "Config.h"
 #include "Chat.h"
 
-#include "WoCConfig.h"
+#include "Config/WoCConfig.h"
 
 class WoCWorld : public WorldScript
 {
