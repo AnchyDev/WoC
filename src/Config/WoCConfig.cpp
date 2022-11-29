@@ -2,10 +2,10 @@
 
 WoCConfig* WoCConfig::GetInstance()
 {
-    if (!instance)
+    if (!WoCConfig::instance)
     {
-        instance = new WoCConfig();
+        WoCConfig::instance = new WoCConfig();
     }
 
-    return instance;
+    return WoCConfig::instance;
 }
