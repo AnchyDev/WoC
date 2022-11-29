@@ -8,4 +8,9 @@ void WoCWorld::OnAfterConfigLoad(bool /*reload*/)
 void AddWoCScripts()
 {
     new WoCWorld();
+
+    if (WoCConfigMgr->Enable)
+    {
+        new WoCIGPlayerScript();
+    }
 }
