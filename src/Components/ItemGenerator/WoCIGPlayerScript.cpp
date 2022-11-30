@@ -2,6 +2,7 @@
 
 void WoCIGPlayerScript::OnStoreNewItem(Player* player, Item* item, uint32 /*count*/)
 {
+    ChatHandler(player->GetSession()).SendSysMessage(Acore::StringFormat("Test"));
     auto itemTemplate = item->GetTemplate();
 
     if (!itemTemplate->HasWoCFlag(WOC_FLAGS_ITEM))
