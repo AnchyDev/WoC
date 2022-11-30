@@ -5,7 +5,7 @@ void WoCWorld::OnAfterConfigLoad(bool /*reload*/)
     WoCConfigMgr->Enable = sConfigMgr->GetOption<bool>("WoC.Enable", false);
 }
 
-void AddWoCScripts()
+void AddSCWoCScripts()
 {
     new WoCWorld();
 
