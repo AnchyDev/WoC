@@ -128,4 +128,6 @@ uint32 WoCICGameObjectScript::GetItemTypeFromAction(uint32 action)
     case GOSSIP_ITEM_COMPOSER_STARTCOMPOSE_TRINKET2:
         return 12;
     }
+
+    return 0;
 }
