@@ -52,6 +52,8 @@ bool WoCICGameObjectScript::OnGossipSelect(Player* player, GameObject* go, uint3
 
 void WoCICGameObjectScript::StartCompose(Player* player, GameObject* go)
 {
+    ClearGossipMenuFor(player);
+
     AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Head", GOSSIP_SENDER_MAIN, GOSSIP_ITEM_COMPOSER_STARTCOMPOSE_HEAD);
     AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Neck", GOSSIP_SENDER_MAIN, GOSSIP_ITEM_COMPOSER_STARTCOMPOSE_NECK);
     AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Shoulders", GOSSIP_SENDER_MAIN, GOSSIP_ITEM_COMPOSER_STARTCOMPOSE_SHOULDERS);
@@ -67,11 +69,14 @@ void WoCICGameObjectScript::StartCompose(Player* player, GameObject* go)
     AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Trinket 1", GOSSIP_SENDER_MAIN, GOSSIP_ITEM_COMPOSER_STARTCOMPOSE_TRINKET1);
     AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Trinket 2", GOSSIP_SENDER_MAIN, GOSSIP_ITEM_COMPOSER_STARTCOMPOSE_TRINKET2);
     AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Goodbye.", GOSSIP_SENDER_MAIN, GOSSIP_ITEM_COMPOSER_GOODBYE);
+
     SendGossipMenuFor(player, ENTRY_ITEM_COMPOSER_GOSSIPTEXT_STARTCOMPOSE, go->GetGUID());
 }
 
 void WoCICGameObjectScript::ListItems(Player* player, GameObject* go, uint32 action)
 {
+    ClearGossipMenuFor(player);
+
     AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Goodbye.", GOSSIP_SENDER_MAIN, GOSSIP_ITEM_COMPOSER_GOODBYE);
 
     SendGossipMenuFor(player, ENTRY_ITEM_COMPOSER_GOSSIPTEXT_STARTCOMPOSE_LISTITEMS, go->GetGUID());
