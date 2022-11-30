@@ -1,18 +1,18 @@
-#include "WoCICCreatureScript.h"
+#include "WoCICGameObjectScript.h"
 
-bool WoCICCreatureScript::OnGossipHello(Player* player, Creature* creature)
+bool WoCICGameObjectScript::OnGossipHello(Player* player, GameObject* go)
 {
     ClearGossipMenuFor(player);
 
     AddGossipItemFor(player, GOSSIP_ICON_CHAT, "I would like to compose an item.", GOSSIP_SENDER_MAIN, GOSSIP_ITEM_COMPOSER_COMPOSE);
     AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Goodbye.", GOSSIP_SENDER_MAIN, GOSSIP_ITEM_COMPOSER_GOODBYE);
 
-    SendGossipMenuFor(player, ENTRY_ITEM_COMPOSER_GOSSIPTEXT, creature->GetGUID());
+    SendGossipMenuFor(player, ENTRY_ITEM_COMPOSER_GOSSIPTEXT, go->GetGUID());
 
     return true;
 }
 
-bool WoCICCreatureScript::OnGossipSelect(Player* player, Creature* creature, uint32 sender, uint32 action)
+bool WoCICGameObjectScript::OnGossipSelect(Player* player, GameObject* go, uint32 sender, uint32 action)
 {
     if (sender != GOSSIP_SENDER_MAIN)
     {
