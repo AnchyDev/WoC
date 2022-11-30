@@ -47,6 +47,18 @@ bool WoCICGameObjectScript::OnGossipSelect(Player* player, GameObject* go, uint3
         break;
     }
 
+    if (action > GOSSIP_ITEM_COMPOSTER_STARTCOMPOSE_ITEMPOS_START &&
+        action < GOSSIP_ITEM_COMPOSTER_STARTCOMPOSE_ITEMPOS_END)
+    {
+        uint32 itemPos = action - GOSSIP_ITEM_COMPOSTER_STARTCOMPOSE_ITEMPOS_START;
+        Item* item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, itemPos);
+
+        if (item)
+        {
+            LOG_INFO("module", "Found item: {}", item->GetTemplate()->Name1);
+        }
+    }
+
     return true;
 }
 
@@ -88,12 +100,12 @@ void WoCICGameObjectScript::ListItems(Player* player, GameObject* go, uint32 act
             continue;
         }
 
-        //LOG_INFO("module", "ItemId: {}, Type: {}, Slot: {}", item->GetTemplate()->ItemId, item->GetTemplate()->InventoryType, i);
+        LOG_INFO("module", "ItemId: {}, Type: {}, Slot: {}", item->GetTemplate()->ItemId, item->GetTemplate()->InventoryType, i);
 
         if (item->GetTemplate()->HasWoCFlag(WOC_FLAGS_ITEM) &&
             item->GetTemplate()->InventoryType == itemType)
         {
-            AddGossipItemFor(player, GOSSIP_ICON_CHAT, item->GetTemplate()->Name1, GOSSIP_SENDER_MAIN, GOSSIP_ITEM_COMPOSER_GOODBYE);
+            AddGossipItemFor(player, GOSSIP_ICON_CHAT, item->GetTemplate()->Name1, GOSSIP_SENDER_MAIN, GOSSIP_ITEM_COMPOSTER_STARTCOMPOSE_ITEMPOS_START + i);
         }
     }
 
