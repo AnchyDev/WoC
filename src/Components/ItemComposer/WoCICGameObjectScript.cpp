@@ -88,7 +88,7 @@ void WoCICGameObjectScript::ListItems(Player* player, GameObject* go, uint32 act
             continue;
         }
 
-        LOG_INFO("module", "ItemId: {}, Type: {}, Slot: {}", item->GetTemplate()->ItemId, item->GetTemplate()->InventoryType, i);
+        //LOG_INFO("module", "ItemId: {}, Type: {}, Slot: {}", item->GetTemplate()->ItemId, item->GetTemplate()->InventoryType, i);
 
         if (item->GetTemplate()->HasWoCFlag(WOC_FLAGS_ITEM) &&
             item->GetTemplate()->InventoryType == itemType)
