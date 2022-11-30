@@ -11,5 +11,5 @@ void AddSCWoCScripts()
 {
     new WoCWorld();
     new WoCIGPlayerScript();
-    new WoCICCreatureScript();
+    new WoCICGameObjectScript();
 }
