@@ -150,3 +150,20 @@ uint32 WoCICGameObjectScript::GetItemTypeFromAction(uint32 action)
 
     return 0;
 }
+
+uint32 WoCICGameObjectScript::GetComposeLevelFromItem(Item* item)
+{
+    if (!item->GetItemRandomPropertyId())
+    {
+        return 0;
+    }
+
+    ItemRandomSuffixEntry const* randSuffix = sItemRandomSuffixStore.LookupEntry(std::abs(item->GetItemRandomPropertyId()));
+
+    if (!randSuffix)
+    {
+        return 0;
+    }
+
+    return randSuffix->AllocationPct[4];
+}

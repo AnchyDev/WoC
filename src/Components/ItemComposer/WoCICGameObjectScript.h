@@ -50,6 +50,7 @@ private:
     void StartCompose(Player* /*player*/, GameObject* /*go*/);
     void ListItems(Player* /*player*/, GameObject* /*go*/, uint32 /*action*/);
     uint32 GetItemTypeFromAction(uint32 /*action*/);
+    uint32 GetComposeLevelFromItem(Item* /*item*/);
 };
 
 #endif //MODULE_WOC_IC_GAMEOBJECTSCRIPT_H
