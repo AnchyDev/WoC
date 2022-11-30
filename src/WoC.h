@@ -7,6 +7,7 @@
 #include "Chat.h"
 
 #include "Config/WoCConfig.h"
+#include "Config/WoCConfig.cpp"
 #include "Components/ItemGenerator/WoCIGPlayerScript.h"
 
 class WoCWorld : public WorldScript
