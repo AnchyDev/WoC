@@ -83,6 +83,11 @@ void WoCICGameObjectScript::ListItems(Player* player, GameObject* go, uint32 act
     {
         Item* item = player->GetItemByPos(i);
 
+        if (!item)
+        {
+            continue;
+        }
+
         if (item->GetTemplate()->HasWoCFlag(WOC_FLAGS_ITEM) &&
             item->GetTemplate()->InventoryType == itemType)
         {
