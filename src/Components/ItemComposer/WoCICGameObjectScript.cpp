@@ -77,7 +77,55 @@ void WoCICGameObjectScript::ListItems(Player* player, GameObject* go, uint32 act
 {
     ClearGossipMenuFor(player);
 
+    uint32 itemType = GetItemTypeFromAction(action);
+
+    for (uint32 i = EQUIPMENT_SLOT_START; i < EQUIPMENT_SLOT_END; ++i)
+    {
+        Item* item = player->GetItemByPos(i);
+
+        if (item->GetTemplate()->HasWoCFlag(WOC_FLAGS_ITEM) &&
+            item->GetTemplate()->InventoryType == itemType)
+        {
+            AddGossipItemFor(player, GOSSIP_ICON_CHAT, item->GetTemplate()->Name1, GOSSIP_SENDER_MAIN, GOSSIP_ITEM_COMPOSER_GOODBYE);
+        }
+    }
+
     AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Goodbye.", GOSSIP_SENDER_MAIN, GOSSIP_ITEM_COMPOSER_GOODBYE);
 
     SendGossipMenuFor(player, ENTRY_ITEM_COMPOSER_GOSSIPTEXT_STARTCOMPOSE_LISTITEMS, go->GetGUID());
+}
+
+uint32 WoCICGameObjectScript::GetItemTypeFromAction(uint32 action)
+{
+    switch (action)
+    {
+    case GOSSIP_ITEM_COMPOSER_STARTCOMPOSE_HEAD:
+        return 1;
+    case GOSSIP_ITEM_COMPOSER_STARTCOMPOSE_NECK:
+        return 2;
+    case GOSSIP_ITEM_COMPOSER_STARTCOMPOSE_SHOULDERS:
+        return 3;
+    case GOSSIP_ITEM_COMPOSER_STARTCOMPOSE_BACK:
+        return 16;
+    case GOSSIP_ITEM_COMPOSER_STARTCOMPOSE_CHEST:
+        return 5;
+    case GOSSIP_ITEM_COMPOSER_STARTCOMPOSE_WRISTS:
+        return 9;
+    case GOSSIP_ITEM_COMPOSER_STARTCOMPOSE_HANDS:
+        return 10;
+    case GOSSIP_ITEM_COMPOSER_STARTCOMPOSE_BELT:
+        return 6;
+    case GOSSIP_ITEM_COMPOSER_STARTCOMPOSE_LEGS:
+        return 7;
+    case GOSSIP_ITEM_COMPOSER_STARTCOMPOSE_FEET:
+        return 8;
+    case GOSSIP_ITEM_COMPOSER_STARTCOMPOSE_RING1:
+        return 11;
+    case GOSSIP_ITEM_COMPOSER_STARTCOMPOSE_RING2:
+        return 11;
+    case GOSSIP_ITEM_COMPOSER_STARTCOMPOSE_TRINKET1:
+        return 12;
+    case GOSSIP_ITEM_COMPOSER_STARTCOMPOSE_TRINKET2:
+        return 12;
+    }
 }
