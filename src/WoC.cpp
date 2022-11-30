@@ -10,11 +10,5 @@ void WoCWorld::OnAfterConfigLoad(bool /*reload*/)
 void AddSCWoCScripts()
 {
     new WoCWorld();
-
-    if (WoCConfigMgr->Enable)
-    {
-        LOG_INFO("module", "WoC Enabled, loading scripts..");
-        new WoCIGPlayerScript();
-        LOG_INFO("module", ">> Scripts Loaded");
-    }
+    new WoCIGPlayerScript();
 }
