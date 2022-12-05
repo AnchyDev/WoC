@@ -2,7 +2,6 @@
 
 void WoCIGPlayerScript::OnStoreNewItem(Player* player, Item* item, uint32 /*count*/)
 {
-    ChatHandler(player->GetSession()).SendSysMessage(Acore::StringFormat("Test"));
     auto itemTemplate = item->GetTemplate();
 
     if (!itemTemplate->HasWoCFlag(WOC_FLAGS_ITEM))
@@ -11,7 +10,7 @@ void WoCIGPlayerScript::OnStoreNewItem(Player* player, Item* item, uint32 /*coun
     }
 
     double roll = rand_chance();
-    ChatHandler(player->GetSession()).SendSysMessage(Acore::StringFormat("Rolled"));
+
     if (roll > 50.0)
     {
 
@@ -19,8 +18,6 @@ void WoCIGPlayerScript::OnStoreNewItem(Player* player, Item* item, uint32 /*coun
         {
             item->SetItemRandomProperties(-urand(100, 108));
         }
-
-        ChatHandler(player->GetSession()).SendSysMessage("Won roll");
 
         EnchantItem(player, item, PRISMATIC_ENCHANTMENT_SLOT, 3884, true);
     }
