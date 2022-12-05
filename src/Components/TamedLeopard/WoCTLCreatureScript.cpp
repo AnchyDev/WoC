@@ -4,8 +4,8 @@ bool WoCTLCreatureScript::OnGossipHello(Player* player, Creature* creature)
 {
     ClearGossipMenuFor(player);
 
-    AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Mount", GOSSIP_SENDER_MAIN, GOSSIP_TAMED_LEOPARD_MOUNT);
-    AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Pet", GOSSIP_SENDER_MAIN, GOSSIP_TAMED_LEOPARD_PET);
+    AddGossipItemFor(player, GOSSIP_ICON_CHAT, "<Mount the Leopard>", GOSSIP_SENDER_MAIN, GOSSIP_TAMED_LEOPARD_MOUNT);
+    AddGossipItemFor(player, GOSSIP_ICON_CHAT, "<Pet the Leopard>", GOSSIP_SENDER_MAIN, GOSSIP_TAMED_LEOPARD_PET);
 
     SendGossipMenuFor(player, ENTRY_TAMED_LEOPARD_GOSSIPTEXT_GREET, creature->GetGUID());
 
@@ -56,4 +56,6 @@ void WoCTLCreatureScript::MountPlayer(Player* player, Creature* creature)
 void WoCTLCreatureScript::ReceivePet(Player* player, Creature* creature)
 {
     creature->TextEmote("Tamed Leopard purrs.");
+
+    CloseGossipMenuFor(player);
 }
