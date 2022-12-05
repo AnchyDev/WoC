@@ -91,7 +91,7 @@ void WoCICGameObjectScript::ListItems(Player* player, GameObject* go, uint32 act
 
     uint32 itemType = GetItemTypeFromAction(action);
 
-    // FIXME: Iterating the wrong slots, need to scan bags not equipment.
+    // FIXME: This doesn't include the main bag.
     for (uint32 i = INVENTORY_SLOT_BAG_START; i < INVENTORY_SLOT_BAG_END; ++i)
     {
         Bag* bag = player->GetBagByPos(i);
