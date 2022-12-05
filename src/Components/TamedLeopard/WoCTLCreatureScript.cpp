@@ -29,6 +29,8 @@ bool WoCTLCreatureScript::OnGossipSelect(Player* player, Creature* creature, uin
         ReceivePet(player, creature);
         break;
     }
+
+    return true;
 }
 
 void WoCTLCreatureScript::MountPlayer(Player* player, Creature* creature)
