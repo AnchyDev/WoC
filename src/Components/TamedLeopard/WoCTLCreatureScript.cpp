@@ -55,5 +55,5 @@ void WoCTLCreatureScript::MountPlayer(Player* player, Creature* creature)
 
 void WoCTLCreatureScript::ReceivePet(Player* player, Creature* creature)
 {
-    creature->TextEmote("purrs.");
+    creature->TextEmote("Tamed Leopard purrs.");
 }
