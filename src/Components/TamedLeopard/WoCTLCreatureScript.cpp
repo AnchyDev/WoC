@@ -51,6 +51,8 @@ void WoCTLCreatureScript::MountPlayer(Player* player, Creature* creature)
     }
 
     creature->AddAura(ENTRY_TAMED_LEOPARD_MOUNT_SPELLID, player);
+
+    CloseGossipMenuFor(player);
 }
 
 void WoCTLCreatureScript::ReceivePet(Player* player, Creature* creature)
