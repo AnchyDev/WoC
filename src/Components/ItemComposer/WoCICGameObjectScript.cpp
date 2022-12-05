@@ -92,21 +92,31 @@ void WoCICGameObjectScript::ListItems(Player* player, GameObject* go, uint32 act
     uint32 itemType = GetItemTypeFromAction(action);
 
     // FIXME: Iterating the wrong slots, need to scan bags not equipment.
-    for (uint32 i = EQUIPMENT_SLOT_START; i < EQUIPMENT_SLOT_END; ++i)
+    for (uint32 i = INVENTORY_SLOT_BAG_START; i < INVENTORY_SLOT_BAG_END; ++i)
     {
-        Item* item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, i);
+        Bag* bag = player->GetBagByPos(i);
 
-        if (!item)
+        if (!bag)
         {
             continue;
         }
 
-        LOG_INFO("module", "ItemId: {}, Type: {}, Slot: {}", item->GetTemplate()->ItemId, item->GetTemplate()->InventoryType, i);
-
-        if (item->GetTemplate()->HasWoCFlag(WOC_FLAGS_ITEM) &&
-            item->GetTemplate()->InventoryType == itemType)
+        for (uint32 i = 0; i < bag->GetBagSize(); ++i)
         {
-            AddGossipItemFor(player, GOSSIP_ICON_CHAT, item->GetTemplate()->Name1, GOSSIP_SENDER_MAIN, GOSSIP_ITEM_COMPOSTER_STARTCOMPOSE_ITEMPOS_START + i);
+            Item* item = bag->GetItemByPos(i);
+
+            if (!item)
+            {
+                continue;
+            }
+
+            LOG_INFO("module", "ItemId: {}, Type: {}, Slot: {}", item->GetTemplate()->ItemId, item->GetTemplate()->InventoryType, i);
+
+            if (item->GetTemplate()->HasWoCFlag(WOC_FLAGS_ITEM) &&
+                item->GetTemplate()->InventoryType == itemType)
+            {
+                AddGossipItemFor(player, GOSSIP_ICON_CHAT, item->GetTemplate()->Name1, GOSSIP_SENDER_MAIN, GOSSIP_ITEM_COMPOSTER_STARTCOMPOSE_ITEMPOS_START + i);
+            }
         }
     }
 
