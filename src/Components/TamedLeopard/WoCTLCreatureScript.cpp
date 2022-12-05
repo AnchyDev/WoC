@@ -40,14 +40,9 @@ void WoCTLCreatureScript::MountPlayer(Player* player, Creature* creature)
         return;
     }
 
-    if (player->HasAura(ENTRY_TAMED_LEOPARD_MOUNT_SPELLID))
+    if (player->HasAura(ENTRY_TAMED_LEOPARD_MOUNT_SPELLID) || player->IsMounted())
     {
         return;
-    }
-
-    if (player->IsMounted())
-    {
-        player->Dismount();
     }
 
     creature->AddAura(ENTRY_TAMED_LEOPARD_MOUNT_SPELLID, player);
